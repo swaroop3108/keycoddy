@@ -1,0 +1,104 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  outline: none;
+  transition: background 150ms ease,
+    transform 1000ms cubic-bezier(0.98, -0.18, 0.19, 1.21), color 150ms ease,
+    border-color 150ms ease, border 150ms ease, width 250ms ease;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #dddddd75;
+}
+
+.body {
+  height: 100vh;
+  width: 100vw;
+  background: #07090d;
+  display: grid;
+  color: #dddddd;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  place-content: center;
+  opacity: 0;
+  transition: opacity 150ms ease;
+  transition-delay: 150ms;
+
+  &[loaded='true'] {
+    opacity: 1;
+  }
+  .content_container {
+    position: absolute;
+    min-width: fit-content;
+    max-width: fit-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #dddddd75;
+    opacity: 0;
+    transition: opacity 250ms ease;
+    pointer-events: none;
+
+    &[active='true'] {
+      opacity: 1;
+      pointer-events: all;
+    }
+    &[deactive='true'] {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.warn_container {
+      padding: 1rem 1.5rem;
+      background: #090b10;
+      border: 1px solid #7c819a25;
+      border-radius: 5px;
+      box-shadow: 0 0 1rem #090b1003;
+    }
+    &.main_content {
+      display: flex;
+
+      .container {
+        margin: 20px;
+        padding: 0.75rem 1rem;
+        background: #090b10;
+        border: 1px solid #7c819a25;
+        border-radius: 5px;
+        box-shadow: 0 0 1rem #090b1003;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .title,
+        .result {
+          display: inline;
+          margin: 0 auto;
+        }
+        .title {
+          font-size: 1rem;
+          font-weight: 300;
+          margin-bottom: 2.5px;
+        }
+        .result {
+          color: #dddddd85;
+        }
+      }
+    }
+  }
+}
+
+::selection {
+  background: #dddddd10;
+  color: #dddddd;
+}
